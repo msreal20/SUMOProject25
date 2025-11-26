@@ -2,6 +2,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
                              http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.example</groupId>
@@ -15,7 +16,6 @@
   </properties>
 
   <dependencies>
-    <!-- SUMO libtraci -->
     <dependency>
       <groupId>org.eclipse.sumo</groupId>
       <artifactId>libtraci</artifactId>
@@ -23,14 +23,25 @@
       <scope>system</scope>
       <systemPath>${project.basedir}/lib/libtraci-1.24.0.jar</systemPath>
     </dependency>
-
-    <!-- Optional: libsumo -->
-    <dependency>
-      <groupId>org.eclipse.sumo</groupId>
-      <artifactId>libsumo</artifactId>
-      <version>1.24.0</version>
-      <scope>system</scope>
-      <systemPath>${project.basedir}/lib/libsumo-1.24.0.jar</systemPath>
-    </dependency>
   </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>3.1.0</version>
+
+        <configuration>
+          <mainClass>SumoConnection</mainClass>
+
+          <additionalClasspathElements>
+            <additionalClasspathElement>${project.basedir}/lib/libtraci-1.24.0.jar</additionalClasspathElement>
+          </additionalClasspathElements>
+        </configuration>
+
+      </plugin>
+    </plugins>
+  </build>
+
 </project>
