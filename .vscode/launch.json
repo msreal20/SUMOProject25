@@ -3,17 +3,13 @@
   "configurations": [
     {
       "type": "java",
-      "name": "SumoConnection",
+      "name": "Run GUI (MainApp + libtraci)",
       "request": "launch",
-      "mainClass": "SumoConnection",
-      "projectName": "sumo-demo"
-    },
-    {
-      "type": "java",
-      "name": "Run SUMO (libtraci)",
-      "request": "launch",
-      "mainClass": "Main",
-      "cwd": "${workspaceFolder}/SumoProject",
+
+      "mainClass": "hellofx.MainApp",
+
+      "projectName": "sumo-demo",
+
       "vmArgs": "-Djava.library.path=\"C:\\Program Files (x86)\\Eclipse\\Sumo\\bin\"",
       "env": {
         "PATH": "C:\\Program Files (x86)\\Eclipse\\Sumo\\bin;${env:PATH}"
@@ -21,3 +17,4 @@
     }
   ]
 }
+
