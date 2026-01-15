@@ -1,0 +1,23 @@
+package hellofx;
+
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.SimpleDoubleProperty;
+
+public class StreetDensity {
+
+    private final SimpleStringProperty street;
+    private final SimpleDoubleProperty density;
+
+    public StreetDensity(String street, double density) {
+        this.street = new SimpleStringProperty(street);
+        this.density = new SimpleDoubleProperty(density);
+    }
+
+    public String getStreet() {
+        return street.get();
+    }
+
+    public double getDensity() {
+        return density.get();
+    }
+}
